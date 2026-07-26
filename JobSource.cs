@@ -14,15 +14,18 @@ public class JoobleJobSource : IJobSource
 
     public async Task<List<Job>> SearchAsync(string keywords, string location)
     {
-        var content = new StringContent(
-            JsonSerializer.Serialize(new { keywords, location }), Encoding.UTF8, "application/json");
+        var parsed = await Retry.WithBackoffAsync(async () =>
+        {
+            var content = new StringContent(
+                JsonSerializer.Serialize(new { keywords, location }), Encoding.UTF8, "application/json");
 
-        var resp = await Http.PostAsync($"https://jooble.org/api/{_key}", content);
-        resp.EnsureSuccessStatusCode();
+            var resp = await Http.PostAsync($"https://jooble.org/api/{_key}", content);
+            resp.EnsureSuccessStatusCode();
 
-        var parsed = JsonSerializer.Deserialize<JoobleResponse>(
-            await resp.Content.ReadAsStringAsync(),
-            new JsonSerializerOptions { PropertyNameCaseInsensitive = true })!;
+            return JsonSerializer.Deserialize<JoobleResponse>(
+                await resp.Content.ReadAsStringAsync(),
+                new JsonSerializerOptions { PropertyNameCaseInsensitive = true })!;
+        }, label: $"Jooble search '{keywords}' in {location}");
 
         return (parsed.Jobs ?? [])
             .Select(j => new Job(j.Title, j.Company, j.Location, j.Link, Clean(j.Snippet), j.Salary ?? "", "Jooble"))

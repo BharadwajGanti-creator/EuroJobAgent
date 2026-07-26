@@ -24,7 +24,22 @@ public class EmailService
             ?? throw new InvalidOperationException("EMAIL_TO is not set.");
     }
 
-    public async Task SendDigestAsync(string subject, string htmlBody)
+    public Task SendDigestAsync(string subject, string htmlBody) => SendAsync(subject, htmlBody);
+
+    /// <summary>
+    /// Distinct from the match digest so it's visually unmistakable in your inbox - this means
+    /// the pipeline itself broke, not that it ran fine and found nothing.
+    /// </summary>
+    public Task SendFailureAlertAsync(string errorSummary, string stackTrace) => SendAsync(
+        "EuroJobAgent FAILED - pipeline error",
+        $"""
+        <h2 style="color:#c0392b;">The daily run threw an unhandled exception</h2>
+        <p><b>Error:</b> {Escape(errorSummary)}</p>
+        <pre style="background:#f4f4f4;padding:10px;border-radius:6px;white-space:pre-wrap;">{Escape(stackTrace)}</pre>
+        <p>Check the GitHub Actions log for the full run.</p>
+        """);
+
+    private async Task SendAsync(string subject, string htmlBody)
     {
         var payload = new
         {
@@ -34,18 +49,22 @@ public class EmailService
             content = new[] { new { type = "text/html", value = htmlBody } }
         };
 
-        using var req = new HttpRequestMessage(HttpMethod.Post, "/v3/mail/send")
+        await Retry.WithBackoffAsync(async () =>
         {
-            Content = new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json")
-        };
-        req.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _apiKey);
+            using var req = new HttpRequestMessage(HttpMethod.Post, "/v3/mail/send")
+            {
+                Content = new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json")
+            };
+            req.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _apiKey);
 
-        var resp = await Http.SendAsync(req);
-        if (!resp.IsSuccessStatusCode)
-        {
-            var body = await resp.Content.ReadAsStringAsync();
-            throw new InvalidOperationException($"SendGrid returned {(int)resp.StatusCode}: {body}");
-        }
+            var resp = await Http.SendAsync(req);
+            if (!resp.IsSuccessStatusCode)
+            {
+                var body = await resp.Content.ReadAsStringAsync();
+                throw new InvalidOperationException($"SendGrid returned {(int)resp.StatusCode}: {body}");
+            }
+            return true;
+        }, label: "SendGrid send");
     }
 
     public static string BuildDigestHtml(List<TrackedJob> newJobs)

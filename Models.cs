@@ -31,6 +31,23 @@ public interface IJobSource
 
 public record Score(int Index, int FitScore, string Reason, string Missing);
 
+/// <summary>
+/// Thrown by JobMatcher.ScoreJobsAsync when the LLM's response drops one or more job indices.
+/// A distinct type (not a generic Exception) so callers can catch this specific failure mode
+/// deliberately - Eval.cs lets it propagate and crash (an incomplete eval is untrustworthy),
+/// while Program.cs's cron mode catches it specifically and degrades gracefully.
+/// </summary>
+public class MatcherIncompleteException(string message, List<int> missingIndices, Score[] partialScores)
+    : Exception(message)
+{
+    public List<int> MissingIndices { get; } = missingIndices;
+
+    /// <summary>The scores the matcher DID successfully return, before the drop was detected.</summary>
+    public Score[] PartialScores { get; } = partialScores;
+}
+
+public record GoldenItem(string Title, string Company, string Location, string Snippet, bool Relevant);
+
 public record RankedJob(
     string JobId, string Title, string Company, string Location, string Link,
     string Salary, int FitScore, string Reason, string Missing, bool IsTargetCompany

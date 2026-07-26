@@ -59,12 +59,23 @@ public class JobMatcher
     }
 
     public async Task<string[]> PlanQueriesAsync(CandidateProfile profile, string target) =>
-        ParseJson<string[]>(await RunAndClean(_queryAgent, $"""
-        Skills: {string.Join(", ", profile.Skills)}
-        Seniority: {profile.SeniorityLevel}
-        Target: {target}
-        """));
+        ParseJson<string[]>(await Retry.WithBackoffAsync(
+            () => RunAndClean(_queryAgent, $"""
+            Skills: {string.Join(", ", profile.Skills)}
+            Seniority: {profile.SeniorityLevel}
+            Target: {target}
+            """),
+            label: "Gemini QueryPlanner call"));
 
+    /// <summary>
+    /// Throws if the LLM's JSON response drops any job index - deliberately as strict as v1's
+    /// matcher ("scores incomplete - don't trust the eval"). This method is the single source of
+    /// truth for score integrity; it is used both by Eval.cs (where a dropped index should crash
+    /// loudly, since a silently-incomplete eval run is worse than no eval run) and by the cron
+    /// pipeline (Program.cs), which explicitly catches this specific exception and degrades
+    /// gracefully instead - see the comment at that call site for why cron mode needs different
+    /// behaviour than eval mode. The leniency lives at the call site, not here.
+    /// </summary>
     public async Task<Score[]> ScoreJobsAsync(CandidateProfile profile, string target, List<Job> jobs)
     {
         if (jobs.Count == 0) return [];
@@ -81,20 +92,17 @@ public class JobMatcher
                 sb.AppendLine($"   Description: {jobs[i].Snippet}");
         }
 
-        var scores = ParseJson<Score[]>(await RunAndClean(_matchAgent, sb.ToString()));
+        var scores = ParseJson<Score[]>(await Retry.WithBackoffAsync(
+            () => RunAndClean(_matchAgent, sb.ToString()),
+            label: "Gemini Matcher call"));
 
         var returned = scores.Select(s => s.Index).ToHashSet();
         var missing = Enumerable.Range(0, jobs.Count).Where(i => !returned.Contains(i)).ToList();
         if (missing.Count > 0)
-        {
-            // Don't fail the whole run over a partial LLM response - treat unscored jobs as low-fit
-            // and log it loudly so it's visible in the Actions log rather than silently dropped.
-            Console.WriteLine($"WARNING: Matcher dropped {missing.Count} job(s): indices [{string.Join(", ", missing)}]. Defaulting them to fitScore 0.");
-            var patched = scores.ToList();
-            foreach (var i in missing)
-                patched.Add(new Score(i, 0, "Not scored by matcher (dropped response)", "unknown"));
-            return patched.ToArray();
-        }
+            throw new MatcherIncompleteException(
+                $"Matcher dropped {missing.Count} of {jobs.Count} job(s): indices [{string.Join(", ", missing)}].",
+                missing, scores);
+
         return scores;
     }
 

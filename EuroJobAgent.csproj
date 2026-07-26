@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -12,6 +12,21 @@
     <!-- Same LLM package family as the existing agentic-job-search project, proven working in CI. -->
     <PackageReference Include="Google_GenerativeAI.Microsoft" Version="3.6.6" />
     <PackageReference Include="Microsoft.Agents.AI" Version="1.9.0" />
+  </ItemGroup>
+
+  <!--
+    EuroJobAgent.Tests lives inside this project's own folder (needed so it's under the git repo
+    root at EuroJobAgent/, not a sibling that CI would never see). SDK-style projects default to
+    globbing **/*.cs under their own directory with no awareness of nested sibling projects, so
+    without this exclusion the main project was also compiling the test project's .cs files
+    (pulling in Xunit types it never references -> CS0246) and its generated obj/ AssemblyInfo.cs
+    (duplicate assembly attributes -> CS0579). Exclude the whole subtree explicitly.
+  -->
+  <ItemGroup>
+    <Compile Remove="EuroJobAgent.Tests/**/*.cs" />
+    <EmbeddedResource Remove="EuroJobAgent.Tests/**" />
+    <Content Remove="EuroJobAgent.Tests/**" />
+    <None Remove="EuroJobAgent.Tests/**" />
   </ItemGroup>
 
 </Project>

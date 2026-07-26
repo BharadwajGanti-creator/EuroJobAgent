@@ -59,15 +59,19 @@ public class DraftAgent
                 sb.AppendLine($"    * {b}");
         }
 
-        var runOptions = new ChatClientAgentRunOptions(new ChatOptions { Temperature = 0.3f });
-        string raw = (await _draftAgent.RunAsync(sb.ToString(), options: runOptions)).Text.Trim();
-        if (raw.StartsWith("```"))
+        string raw = await Retry.WithBackoffAsync(async () =>
         {
-            int nl = raw.IndexOf('\n');
-            raw = raw[(nl + 1)..];
-            if (raw.EndsWith("```")) raw = raw[..^3];
-            raw = raw.Trim();
-        }
+            var runOptions = new ChatClientAgentRunOptions(new ChatOptions { Temperature = 0.3f });
+            string text = (await _draftAgent.RunAsync(sb.ToString(), options: runOptions)).Text.Trim();
+            if (text.StartsWith("```"))
+            {
+                int nl = text.IndexOf('\n');
+                text = text[(nl + 1)..];
+                if (text.EndsWith("```")) text = text[..^3];
+                text = text.Trim();
+            }
+            return text;
+        }, label: $"Gemini Drafter call for {job.Company}");
 
         return JsonSerializer.Deserialize<DraftResult>(raw,
             new JsonSerializerOptions { PropertyNameCaseInsensitive = true })!;

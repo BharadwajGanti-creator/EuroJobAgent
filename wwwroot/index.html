@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>EuroJobAgent — Tracker</title>
+<style>
+  :root { --bg:#0f1115; --card:#181b22; --line:#262b36; --txt:#e6e9ef; --mut:#9aa3b2;
+          --good:#2ecc71; --mid:#f1c40f; --low:#7f8896; --accent:#4f8cff; --target:#f39c12; }
+  * { box-sizing:border-box; }
+  body { margin:0; font:15px/1.5 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+         background:var(--bg); color:var(--txt); }
+  .wrap { max-width:920px; margin:0 auto; padding:32px 20px 64px; }
+  h1 { font-size:22px; margin:0 0 4px; }
+  .sub { color:var(--mut); margin:0 0 20px; }
+  .toolbar { display:flex; align-items:center; gap:12px; margin-bottom:20px; flex-wrap:wrap; }
+  button, select { background:var(--accent); color:#fff; border:0; border-radius:8px;
+           padding:9px 14px; font-size:14px; font-weight:600; cursor:pointer; }
+  select { background:var(--card); border:1px solid var(--line); font-weight:400; }
+  button:disabled { opacity:.55; cursor:default; }
+  .status-msg { color:var(--mut); font-size:14px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:10px;
+          padding:14px 16px; margin-bottom:12px; }
+  .card .top { display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; }
+  .score { font-weight:700; min-width:34px; }
+  .s-good{color:var(--good);} .s-mid{color:var(--mid);} .s-low{color:var(--low);}
+  .title { font-weight:600; }
+  .badge { display:inline-block; background:rgba(243,156,18,.15); color:var(--target);
+           border:1px solid var(--target); border-radius:999px; padding:1px 8px; font-size:11px;
+           font-weight:700; margin-left:6px; }
+  .meta { color:var(--mut); font-size:13px; margin:2px 0 8px; }
+  .why { font-size:14px; }
+  .miss { color:var(--mut); font-size:13px; margin-top:4px; }
+  .why b, .miss b { color:var(--txt); }
+  a { color:var(--accent); text-decoration:none; font-size:13px; }
+  details { margin-top:8px; }
+  summary { cursor:pointer; color:var(--accent); font-size:13px; }
+  .draft { margin-top:8px; font-size:14px; }
+  .draft ul { margin:6px 0; padding-left:20px; }
+  .row-bottom { display:flex; align-items:center; justify-content:space-between; margin-top:10px;
+                gap:10px; flex-wrap:wrap; }
+  .jobid { color:#666; font-size:11px; }
+  .empty { color:var(--mut); text-align:center; padding:40px 0; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>EuroJobAgent</h1>
+    <p class="sub">All tracked matches, across every run — not just the last one.</p>
+    <div class="toolbar">
+      <button id="run">Run now</button>
+      <select id="filter">
+        <option value="">All statuses</option>
+        <option>New</option>
+        <option>Applied</option>
+        <option>Interview</option>
+        <option>Rejected</option>
+        <option>Offer</option>
+      </select>
+      <span class="status-msg" id="status"></span>
+    </div>
+    <div id="out"></div>
+  </div>
+<script>
+const btn = document.getElementById('run');
+const filterEl = document.getElementById('filter');
+const statusEl = document.getElementById('status');
+const out = document.getElementById('out');
+const band = s => s >= 70 ? 's-good' : s >= 40 ? 's-mid' : 's-low';
+const esc = t => (t ?? '').replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+
+let allJobs = [];
+
+btn.addEventListener('click', async () => {
+  btn.disabled = true;
+  statusEl.textContent = 'Running full pipeline: planning → fetching → scoring → drafting → emailing…';
+  try {
+    const res = await fetch('/api/run', { method: 'POST' });
+    const data = await res.json();
+    if (!res.ok || data.error) throw new Error(data.error || ('HTTP ' + res.status));
+    statusEl.textContent = 'Done. Reloading tracker…';
+    await load();
+  } catch (e) {
+    statusEl.innerHTML = '<span style="color:#ff6b6b">Run failed: ' + esc(e.message) + '</span>';
+  } finally { btn.disabled = false; }
+});
+
+filterEl.addEventListener('change', render);
+
+async function markStatus(jobId, status) {
+  await fetch('/api/mark', {
+    method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ jobId, status })
+  });
+  const job = allJobs.find(j => j.jobId === jobId);
+  if (job) job.status = status;
+}
+
+function render() {
+  const filter = filterEl.value;
+  const jobs = filter ? allJobs.filter(j => j.status === filter) : allJobs;
+
+  if (jobs.length === 0) {
+    out.innerHTML = '<div class="empty">No tracked jobs' + (filter ? ' with status "' + esc(filter) + '"' : '') + ' yet.</div>';
+    return;
+  }
+
+  out.innerHTML = jobs.map(j => {
+    const badge = j.isTargetCompany ? '<span class="badge">TARGET SPONSOR</span>' : '';
+    const statusOptions = ['New', 'Applied', 'Interview', 'Rejected', 'Offer']
+      .map(s => `<option value="${s}" ${s === j.status ? 'selected' : ''}>${s}</option>`).join('');
+    const bullets = (j.emphasizedBullets || []).map(b => `<li>${esc(b)}</li>`).join('');
+    const draft = j.tailoredSummary ? `
+      <details>
+        <summary>Tailored draft</summary>
+        <div class="draft">
+          <div><b>Summary:</b> ${esc(j.tailoredSummary)}</div>
+          <ul>${bullets}</ul>
+          <div><b>Cover letter:</b><br/>${esc(j.coverLetter).replace(/\n/g, '<br/>')}</div>
+        </div>
+      </details>` : '';
+
+    return `
+    <div class="card">
+      <div class="top"><span class="score ${band(j.fitScore)}">${j.fitScore}</span>
+        <span class="title">${esc(j.title)}</span> — <span>${esc(j.company)}</span>${badge}</div>
+      <div class="meta">${esc(j.location)} ${j.salary ? '· ' + esc(j.salary) : ''} · first seen ${esc(j.firstSeenUtc)}</div>
+      <div class="why"><b>Why:</b> ${esc(j.reason)}</div>
+      <div class="miss"><b>Missing:</b> ${esc(j.missing)}</div>
+      ${draft}
+      <div class="row-bottom">
+        <a href="${j.link}" target="_blank" rel="noopener">View posting →</a>
+        <span class="jobid">${j.jobId}</span>
+        <select onchange="markStatus('${j.jobId}', this.value)">${statusOptions}</select>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+async function load() {
+  try {
+    const res = await fetch('/api/tracker', { cache: 'no-store' });
+    if (!res.ok) return;
+    allJobs = await res.json();
+    render();
+  } catch {}
+}
+load();
+</script>
+</body>
+</html>
