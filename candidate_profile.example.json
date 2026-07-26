@@ -1,0 +1,66 @@
+{
+  "skills": [
+    "C#", "TypeScript", "T-SQL", "SQL", "JavaScript",
+    ".NET Core", "ASP.NET Core", ".NET Framework", "Entity Framework", "LINQ",
+    "Angular", "HTML", "CSS",
+    "RESTful API design", "Web API", "microservices",
+    "SQL Server", "Azure SQL", "Aerospike (NoSQL)",
+    "xUnit", "Moq", "SonarQube",
+    "Azure App Services", "Azure Service Bus", "Azure DevOps", "Jenkins", "Harness", "Git",
+    "RabbitMQ",
+    "OOP", "SOLID", "Repository pattern", "Factory pattern", "Strategy pattern", "Dependency Injection", "Agile/Scrum"
+  ],
+  "yearsOfExperience": 5.5,
+  "jobTitles": ["Software Engineer", "Backend Developer", ".NET Developer", "Technology Analyst"],
+  "domains": ["Banking", "Insurance", "Financial Services"],
+  "seniorityLevel": "Mid-level",
+  "education": [
+    "B.Tech, Computer Science - GMR Institute of Technology (GMRIT), 2014-2018",
+    "MSc, Business Management - Dublin City University, Sep 2024 - Jul 2025"
+  ],
+  "currentLocation": "Dublin, Ireland",
+  "targetLocations": ["Netherlands"],
+  "summary": "Software engineer with 5+ years across C#, .NET Core, ASP.NET Core, Angular (TypeScript), and SQL Server, delivering REST APIs and microservices in regulated financial-services environments (banking, insurance). Strong SQL Server and NoSQL (Aerospike) background, unit testing (xUnit/Moq), static code analysis (SonarQube), and CI/CD delivery in Agile teams. Open to relocating within the EU for the right role; requires visa sponsorship.",
+  "experience": [
+    {
+      "role": "Technology Analyst",
+      "company": "Infosys Ltd",
+      "dates": "Jun 2022 - Aug 2024",
+      "bullets": [
+        "Diagnosed an unindexed SQL join in a core stored procedure and redesigned the query logic, cutting execution time from 18 seconds to 1.8 seconds and eliminating recurring incidents for 90+ days.",
+        "Reduced nightly aggregation runtime from 40 minutes to under 8 minutes by implementing covering indexes and eliminating table scans.",
+        "Developed, implemented and tested feature enhancements across .NET Core Web API microservices consuming Azure Service Bus, owning components through the full SDLC under regulated release governance (UAT sign-offs, controlled deployment windows).",
+        "Developed and maintained unit tests (xUnit, Moq) and enforced quality through SonarQube gates and peer code reviews.",
+        "Drove root-cause analysis for production issues and implemented preventive measures to IT compliance standards."
+      ]
+    },
+    {
+      "role": "Systems Engineer",
+      "company": "Tata Consultancy Services",
+      "dates": "Jul 2021 - Jun 2022",
+      "bullets": [
+        "Designed and developed REST APIs for policy eligibility checks and customer document processing, integrating third-party decisioning engines for automated underwriting workflows.",
+        "Optimised stored procedures, reducing report generation time by 35%.",
+        "Collaborated with offshore teams across 3 time zones to deliver quarterly releases in an Agile process, coordinating estimation, impact analysis and regression testing with QA."
+      ]
+    },
+    {
+      "role": "Software Engineer",
+      "company": "L&T Infotech",
+      "dates": "Jan 2019 - May 2021",
+      "bullets": [
+        "Developed backend C#/.NET changes and Angular UI modules for a multi-tenant travel insurance platform shared across multiple business entities.",
+        "Implemented a RabbitMQ-based caching layer to improve response times for high-traffic customer quote endpoints.",
+        "Contributed to refactoring initiatives - separating business-logic layers, adopting dependency injection and a Strategy pattern for configurable underwriting workflows."
+      ]
+    },
+    {
+      "role": "Credit Analyst (Part-time)",
+      "company": "Confidential",
+      "dates": "Oct 2025 - Present",
+      "bullets": [
+        "Credit risk analysis and accounts receivable reporting for a financial-services client, maintained alongside continued hands-on .NET development."
+      ]
+    }
+  ]
+}

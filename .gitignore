@@ -1,0 +1,11 @@
+bin/
+obj/
+.vs/
+*.user
+
+# Personal data - never commit these. The real content lives in GitHub Actions secrets
+# (CANDIDATE_PROFILE_JSON) and is written to this path only inside the CI run.
+candidate_profile.json
+
+# Local .env if you use one for manual runs outside CI
+.env
