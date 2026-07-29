@@ -124,5 +124,22 @@
     "tailoredSummary": "",
     "emphasizedBullets": [],
     "coverLetter": ""
+  },
+  "D373CA0B3C1AF7E5": {
+    "jobId": "D373CA0B3C1AF7E5",
+    "title": "Senior Software Engineer",
+    "company": "Cboe Digital",
+    "location": "Netherlands",
+    "link": "https://jooble.org/jdp/-8424347897020707285",
+    "salary": "",
+    "fitScore": 45,
+    "reason": "This is a Senior Software Engineer role with a focus on Java/Python for backend, which is a decent fit due to the domain but not ideal tech stack.",
+    "missing": "C#, .NET",
+    "isTargetCompany": false,
+    "status": "New",
+    "firstSeenUtc": "2026-07-29 09:41:15Z",
+    "tailoredSummary": "",
+    "emphasizedBullets": [],
+    "coverLetter": ""
   }
 }
