@@ -141,5 +141,22 @@
     "tailoredSummary": "",
     "emphasizedBullets": [],
     "coverLetter": ""
+  },
+  "EB85957D385E0A74": {
+    "jobId": "EB85957D385E0A74",
+    "title": "Backend Engineer (MERN Stack)",
+    "company": "Mimica",
+    "location": "Netherlands",
+    "link": "https://jooble.org/jdp/553136927143770843",
+    "salary": "",
+    "fitScore": 45,
+    "reason": "This is a backend role, but the tech stack is MERN (MongoDB, Express.js, React, Node.js), not .NET.",
+    "missing": "Node.js, MongoDB, React",
+    "isTargetCompany": false,
+    "status": "New",
+    "firstSeenUtc": "2026-07-30 09:34:04Z",
+    "tailoredSummary": "",
+    "emphasizedBullets": [],
+    "coverLetter": ""
   }
 }
