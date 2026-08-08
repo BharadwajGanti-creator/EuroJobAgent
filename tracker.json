@@ -226,5 +226,39 @@
     "tailoredSummary": "",
     "emphasizedBullets": [],
     "coverLetter": ""
+  },
+  "D28383BDA05A5C79": {
+    "jobId": "D28383BDA05A5C79",
+    "title": "Strategic Account Executive (Netherlands)",
+    "company": "Ping Identity",
+    "location": "Netherlands",
+    "link": "https://jooble.org/jdp/8765583436822874458",
+    "salary": "",
+    "fitScore": 0,
+    "reason": "This is a sales role, not a software engineering role.",
+    "missing": "sales experience",
+    "isTargetCompany": false,
+    "status": "New",
+    "firstSeenUtc": "2026-08-08 07:52:24Z",
+    "tailoredSummary": "",
+    "emphasizedBullets": [],
+    "coverLetter": ""
+  },
+  "F8EAA26C16E9F44E": {
+    "jobId": "F8EAA26C16E9F44E",
+    "title": "Sales Development - Netherlands",
+    "company": "Valor Capital Group",
+    "location": "Netherlands",
+    "link": "https://jooble.org/jdp/-9079961466900777346",
+    "salary": "",
+    "fitScore": 0,
+    "reason": "This is a sales role, not a software engineering role.",
+    "missing": "sales experience",
+    "isTargetCompany": false,
+    "status": "New",
+    "firstSeenUtc": "2026-08-08 07:52:24Z",
+    "tailoredSummary": "",
+    "emphasizedBullets": [],
+    "coverLetter": ""
   }
 }
