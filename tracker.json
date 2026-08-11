@@ -260,5 +260,22 @@
     "tailoredSummary": "",
     "emphasizedBullets": [],
     "coverLetter": ""
+  },
+  "B6A4F8CB1F7A8A77": {
+    "jobId": "B6A4F8CB1F7A8A77",
+    "title": "Staff Engineer, Trading Automation and Backend Platforms",
+    "company": "Flow Traders",
+    "location": "Netherlands",
+    "link": "https://jooble.org/jdp/-5153744053399612703",
+    "salary": "",
+    "fitScore": 30,
+    "reason": "This is a Staff Engineer role, which is above mid-level, and the tech stack is not specified as .NET.",
+    "missing": ".NET technologies",
+    "isTargetCompany": false,
+    "status": "New",
+    "firstSeenUtc": "2026-08-11 08:11:51Z",
+    "tailoredSummary": "",
+    "emphasizedBullets": [],
+    "coverLetter": ""
   }
 }
