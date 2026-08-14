@@ -403,5 +403,39 @@
     "tailoredSummary": "",
     "emphasizedBullets": [],
     "coverLetter": ""
+  },
+  "26E942D55D7D0112": {
+    "jobId": "26E942D55D7D0112",
+    "title": "Senior Full Stack Engineer - PHP (Laravel)",
+    "company": "Storyteq",
+    "location": "Netherlands",
+    "link": "https://jooble.org/jdp/3755506054117479001",
+    "salary": "",
+    "fitScore": 30,
+    "reason": "This is a full-stack role using PHP (Laravel), which is not a primary match for the candidate\u0027s .NET background.",
+    "missing": "PHP, Laravel",
+    "isTargetCompany": false,
+    "status": "New",
+    "firstSeenUtc": "2026-08-14 08:19:29Z",
+    "tailoredSummary": "",
+    "emphasizedBullets": [],
+    "coverLetter": ""
+  },
+  "D3A9F40778A2315C": {
+    "jobId": "D3A9F40778A2315C",
+    "title": "Analyst, Administration Team - Japanese Corporate Banking Division",
+    "company": "MUFG Bank, Ltd.",
+    "location": "Netherlands",
+    "link": "https://jooble.org/jdp/5777850956021136147",
+    "salary": "",
+    "fitScore": 20,
+    "reason": "This role is in banking, but it\u0027s an administrative/analyst role, not a software engineering role.",
+    "missing": "software engineering experience",
+    "isTargetCompany": false,
+    "status": "New",
+    "firstSeenUtc": "2026-08-14 08:19:29Z",
+    "tailoredSummary": "",
+    "emphasizedBullets": [],
+    "coverLetter": ""
   }
 }
