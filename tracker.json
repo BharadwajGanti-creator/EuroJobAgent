@@ -893,5 +893,39 @@
     "tailoredSummary": "",
     "emphasizedBullets": [],
     "coverLetter": ""
+  },
+  "509B5C30631DDABB": {
+    "jobId": "509B5C30631DDABB",
+    "title": "Junior Packaging Artwork Designer/Graphic Designer",
+    "company": "B\u0026S International",
+    "location": "Netherlands",
+    "link": "https://jooble.org/jdp/7918069187776546523",
+    "salary": "",
+    "fitScore": 0,
+    "reason": "This is a graphic design role for a junior candidate, not a backend software engineering role.",
+    "missing": "none",
+    "isTargetCompany": false,
+    "status": "New",
+    "firstSeenUtc": "2026-09-09 12:13:37Z",
+    "tailoredSummary": "",
+    "emphasizedBullets": [],
+    "coverLetter": ""
+  },
+  "3100D159F25E7C1E": {
+    "jobId": "3100D159F25E7C1E",
+    "title": "Vice President, Enterprise Risk Planning",
+    "company": "MUFG Bank, Ltd.",
+    "location": "Netherlands",
+    "link": "https://jooble.org/jdp/-1552407868155249803",
+    "salary": "",
+    "fitScore": 0,
+    "reason": "This is a Vice President role, which is too senior.",
+    "missing": "none",
+    "isTargetCompany": false,
+    "status": "New",
+    "firstSeenUtc": "2026-09-09 12:13:37Z",
+    "tailoredSummary": "",
+    "emphasizedBullets": [],
+    "coverLetter": ""
   }
 }
