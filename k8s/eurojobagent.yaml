@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eurojobagent
+  labels:
+    app: eurojobagent
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: eurojobagent
+  template:
+    metadata:
+      labels:
+        app: eurojobagent
+    spec:
+      containers:
+        - name: eurojobagent
+          image: eurojobagent:local
+          imagePullPolicy: Never   # image came from `kind load`, never from a registry — don't let it try
+          ports:
+            - containerPort: 8080
+          resources:
+            requests:
+              cpu: "100m"      # "0.1 of a CPU core" — what the scheduler guarantees this pod
+              memory: "128Mi"
+            limits:
+              cpu: "500m"
+              memory: "256Mi"  # hit this and the kernel OOM-kills the container, not gracefully
+          readinessProbe:
+            httpGet:
+              path: /api/tracker
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            failureThreshold: 3
+          livenessProbe:
+            httpGet:
+              path: /api/tracker
+              port: 8080
+            initialDelaySeconds: 15
+            periodSeconds: 20
+            failureThreshold: 3
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: eurojobagent
+spec:
+  selector:
+    app: eurojobagent
+  ports:
+    - port: 80
+      targetPort: 8080
+  type: ClusterIP
