@@ -1053,5 +1053,22 @@
     "tailoredSummary": "",
     "emphasizedBullets": [],
     "coverLetter": ""
+  },
+  "1921A8F534B3AF55": {
+    "jobId": "1921A8F534B3AF55",
+    "title": "Vice President, Credit Officer Leveraged Finance",
+    "company": "MUFG Bank, Ltd.",
+    "location": "Netherlands",
+    "link": "https://jooble.org/jdp/8972769512973131600",
+    "salary": "",
+    "fitScore": 0,
+    "reason": "This is a credit officer role, not a software engineering role.",
+    "missing": "finance/credit experience",
+    "isTargetCompany": false,
+    "status": "New",
+    "firstSeenUtc": "2026-09-29 13:52:57Z",
+    "tailoredSummary": "",
+    "emphasizedBullets": [],
+    "coverLetter": ""
   }
 }
