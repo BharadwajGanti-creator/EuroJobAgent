@@ -1206,5 +1206,39 @@
     "tailoredSummary": "",
     "emphasizedBullets": [],
     "coverLetter": ""
+  },
+  "76914EACDE587801": {
+    "jobId": "76914EACDE587801",
+    "title": "2027 MUFG Analyst Programme Amsterdam: Global Coverage \u0026 Investment Banking",
+    "company": "MUFG Bank, Ltd.",
+    "location": "Netherlands",
+    "link": "https://jooble.org/jdp/-683367947419542336",
+    "salary": "\u20AC50k - \u20AC55k per year",
+    "fitScore": 0,
+    "reason": "This is an analyst program role, not a mid-level software engineering role.",
+    "missing": "none",
+    "isTargetCompany": false,
+    "status": "New",
+    "firstSeenUtc": "2026-10-08 14:28:03Z",
+    "tailoredSummary": "",
+    "emphasizedBullets": [],
+    "coverLetter": ""
+  },
+  "D15378D3E04172FA": {
+    "jobId": "D15378D3E04172FA",
+    "title": "Pre-Commissioning Technical \u0026 Quality Manager",
+    "company": "AUTEL Energy - Europe",
+    "location": "Netherlands",
+    "link": "https://jooble.org/jdp/-7729197696729118749",
+    "salary": "",
+    "fitScore": 0,
+    "reason": "This is a technical management role (Manager) focused on commissioning and quality, not a software engineering role.",
+    "missing": "none",
+    "isTargetCompany": false,
+    "status": "New",
+    "firstSeenUtc": "2026-10-08 14:28:03Z",
+    "tailoredSummary": "",
+    "emphasizedBullets": [],
+    "coverLetter": ""
   }
 }
