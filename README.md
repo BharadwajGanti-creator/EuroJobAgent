@@ -12,6 +12,48 @@ different design: this one is scoped specifically around a live visa-sponsorship
 drafting agent, and email delivery. See "Design notes" below for an honest comparison between the
 two.
 
+## Container and platform engineering
+
+Alongside the agent workflow, this repository is used for hands-on Docker and Kubernetes learning. The application has been deployed in a local `kind` cluster and Azure Kubernetes Service (AKS) with images stored in Azure Container Registry (ACR). These are **personal project deployments**, not evidence of operating an employer's production Kubernetes estate.
+
+### Container build (verified in this repository)
+
+The root [Dockerfile](Dockerfile) uses the .NET 10 SDK to restore/publish the application, then copies the published output into a smaller ASP.NET Core 10 runtime image. The container listens on HTTP port **8080**.
+
+```bash
+docker build -t eurojobagent:local .
+docker run --rm -p 8080:8080 eurojobagent:local
+```
+
+The app starts in web/dashboard mode without CLI arguments. The container may still require application configuration and credentials to execute external API features; do not commit real candidate profiles or API keys.
+
+### Kubernetes and AKS deployment path
+
+The hands-on deployment path is:
+
+```text
+.NET source → multi-stage Docker build → image → ACR
+                                             ↓
+Client → Azure Load Balancer → Kubernetes Service → ready Pod → container :8080 → ASP.NET Core
+```
+
+The personal cluster exercises included Deployments, Services (including LoadBalancer), readiness/liveness probes, CPU/memory resource requests/limits, and service discovery. **The exact cluster manifests and verification outputs are not documented in this README yet**, so this section is a deployment description rather than a one-command reproducible AKS tutorial. Do not infer production-grade availability, scaling, monitoring, or security guarantees from it.
+
+**Important separation:** [`.github/workflows/daily.yml`](.github/workflows/daily.yml) schedules a .NET command directly on a GitHub Actions runner and runs tests before execution; it is **not** an automated image-to-AKS deployment pipeline. The Docker/Kubernetes deployment exercises and the scheduled application workflow are separate paths.
+
+### Failure behaviour and verification boundaries
+
+- Application-level external calls use retries with exponential backoff; the unattended matcher has a targeted graceful-degradation path for missing LLM scores, while evaluation remains strict.
+- Kubernetes **readiness** removes an unready Pod from Service traffic selection; **liveness** can prompt a container restart. Their precise results depend on the probes configured in the cluster.
+- A Kubernetes Service provides stable routing to eligible Pods; it does not guarantee that the application or its dependencies are healthy.
+- Future documentation should include checked-in sanitized manifests, exact deployment commands, observed probe behaviour, and redacted troubleshooting evidence from deliberately broken deployments. These are **next documentation tasks**, not claimed completed experiments.
+
+### Reproducibility and security notes
+
+Use a dedicated Azure subscription/resource group for AKS experiments, keep credentials out of Git, and remove paid cloud resources after testing. Treat `candidate_profile.json` and API tokens as sensitive. To reproduce the *application* without AKS, start with the existing **Setup** and **Running the dashboard locally** sections below.
+
+---
+
 ## Architecture
 
 ```
@@ -138,7 +180,4 @@ git add tracker.json && git commit -m "Mark job as applied" && git push
 - **Retry covers transient failures, not malformed responses.** A dropped matcher index isn't
   retried (the same prompt is unlikely to fix it on a second try) — it's degraded gracefully
   instead, per the design notes above.
-- **This code was written by an assistant that could not compile or run it** (no .NET SDK reachable
-  in that sandbox). Every change was verified by hand (structural checks, cross-referencing, JSON/
-  YAML validation) but the real test is `dotnet build` / `dotnet test` on your machine — treat
-  compiler errors as expected first-pass friction, not a sign something is fundamentally wrong.
+- **Build and deployment verification is environment-specific.** Run `dotnet build` and `dotnet test` locally before relying on any changes; verify Kubernetes resources and runtime behaviour in your own cluster. The README does not assert a current passing test suite or live AKS deployment.
