@@ -1359,5 +1359,22 @@
     "tailoredSummary": "",
     "emphasizedBullets": [],
     "coverLetter": ""
+  },
+  "93ABEB7008CD254F": {
+    "jobId": "93ABEB7008CD254F",
+    "title": "Operations Officer",
+    "company": "Banco Santander S.A.",
+    "location": "Netherlands",
+    "link": "https://jooble.org/jdp/3865524542149147781",
+    "salary": "",
+    "fitScore": 10,
+    "reason": "This is an Operations Officer role, not a software engineering position.",
+    "missing": "software development skills",
+    "isTargetCompany": false,
+    "status": "New",
+    "firstSeenUtc": "2026-10-18 11:59:37Z",
+    "tailoredSummary": "",
+    "emphasizedBullets": [],
+    "coverLetter": ""
   }
 }
