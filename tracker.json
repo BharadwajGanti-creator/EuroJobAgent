@@ -1393,5 +1393,22 @@
     "tailoredSummary": "",
     "emphasizedBullets": [],
     "coverLetter": ""
+  },
+  "D0356FCECC4C4CBA": {
+    "jobId": "D0356FCECC4C4CBA",
+    "title": "Freelance Recruiter",
+    "company": "BringOn.io",
+    "location": "Netherlands",
+    "link": "https://jooble.org/jdp/3565665194791445821",
+    "salary": "",
+    "fitScore": 0,
+    "reason": "This is a freelance recruiter role, completely unrelated to software engineering.",
+    "missing": "software development skills",
+    "isTargetCompany": false,
+    "status": "New",
+    "firstSeenUtc": "2026-10-20 12:36:50Z",
+    "tailoredSummary": "",
+    "emphasizedBullets": [],
+    "coverLetter": ""
   }
 }
