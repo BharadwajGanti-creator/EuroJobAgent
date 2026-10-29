@@ -1427,5 +1427,29 @@
     "tailoredSummary": "",
     "emphasizedBullets": [],
     "coverLetter": ""
+  },
+  "B35E348328B8B1E7": {
+    "jobId": "B35E348328B8B1E7",
+    "title": "Engineering Manager, Product Catalogs",
+    "company": "Reddit",
+    "location": "Netherlands",
+    "link": "https://jooble.org/jdp/5469430533378806019",
+    "salary": "",
+    "fitScore": 65,
+    "reason": "This is a management role, not an individual contributor role, but it is a backend role with relevant tech.",
+    "missing": "individual contributor experience",
+    "isTargetCompany": false,
+    "status": "New",
+    "firstSeenUtc": "2026-10-29 13:59:55Z",
+    "tailoredSummary": "Backend engineer with 5\u002B years of experience in C#/.NET Core, REST APIs, and microservices, including performance optimization of SQL Server databases. Proven ability to deliver robust solutions in regulated environments, with a strong background in Agile methodologies and CI/CD.",
+    "emphasizedBullets": [
+      "Developed, implemented and tested feature enhancements across .NET Core Web API microservices consuming Azure Service Bus, owning components through the full SDLC under regulated release governance.",
+      "Diagnosed an unindexed SQL join in a core stored procedure and redesigned the query logic, cutting execution time from 18 seconds to 1.8 seconds and eliminating recurring incidents for 90\u002B days.",
+      "Reduced nightly aggregation runtime from 40 minutes to under 8 minutes by implementing covering indexes and eliminating table scans.",
+      "Designed and developed REST APIs for policy eligibility checks and customer document processing, integrating third-party decisioning engines for automated underwriting workflows.",
+      "Developed and maintained unit tests (xUnit, Moq) and enforced quality through SonarQube gates and peer code reviews.",
+      "Implemented a RabbitMQ-based caching layer to improve response times for high-traffic customer quote endpoints."
+    ],
+    "coverLetter": "Dear Hiring Manager,\n\nI am writing to express my strong interest in the Engineering Manager, Product Catalogs position at Reddit in the Netherlands. With over five years of experience developing robust backend systems using C#/.NET Core, REST APIs, and microservices, I have a proven track record of optimizing performance and delivering high-quality software in regulated environments.\n\nMy experience includes significant work with SQL Server performance tuning, as demonstrated by reducing query execution times by 90% and aggregation runtimes by over 80%. I am adept at managing the full software development lifecycle and ensuring code quality through comprehensive testing and CI/CD practices. I am confident that my technical expertise and problem-solving skills align well with the requirements of this role.\n\nI am eager to bring my backend engineering and optimization skills to Reddit. I am open to relocating within the EU for this opportunity and will require visa sponsorship. Thank you for considering my application."
   }
 }
