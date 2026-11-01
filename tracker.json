@@ -1451,5 +1451,22 @@
       "Implemented a RabbitMQ-based caching layer to improve response times for high-traffic customer quote endpoints."
     ],
     "coverLetter": "Dear Hiring Manager,\n\nI am writing to express my strong interest in the Engineering Manager, Product Catalogs position at Reddit in the Netherlands. With over five years of experience developing robust backend systems using C#/.NET Core, REST APIs, and microservices, I have a proven track record of optimizing performance and delivering high-quality software in regulated environments.\n\nMy experience includes significant work with SQL Server performance tuning, as demonstrated by reducing query execution times by 90% and aggregation runtimes by over 80%. I am adept at managing the full software development lifecycle and ensuring code quality through comprehensive testing and CI/CD practices. I am confident that my technical expertise and problem-solving skills align well with the requirements of this role.\n\nI am eager to bring my backend engineering and optimization skills to Reddit. I am open to relocating within the EU for this opportunity and will require visa sponsorship. Thank you for considering my application."
+  },
+  "4ED65C930C9CB396": {
+    "jobId": "4ED65C930C9CB396",
+    "title": "Remote Freelance Recruiter \u2014 Instant Stripe Payouts",
+    "company": "BringOn.io",
+    "location": "Netherlands",
+    "link": "https://jooble.org/jdp/-1926903965081685894",
+    "salary": "",
+    "fitScore": 0,
+    "reason": "This is a freelance recruiter role, not a software engineering position.",
+    "missing": "software engineering skills",
+    "isTargetCompany": false,
+    "status": "New",
+    "firstSeenUtc": "2026-11-01 14:09:02Z",
+    "tailoredSummary": "",
+    "emphasizedBullets": [],
+    "coverLetter": ""
   }
 }
