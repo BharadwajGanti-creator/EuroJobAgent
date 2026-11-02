@@ -1468,5 +1468,46 @@
     "tailoredSummary": "",
     "emphasizedBullets": [],
     "coverLetter": ""
+  },
+  "86BA5F8BF73B6E91": {
+    "jobId": "86BA5F8BF73B6E91",
+    "title": "Senior Backend Engineer - Low Latency",
+    "company": "Bitvavo",
+    "location": "Netherlands",
+    "link": "https://jooble.org/jdp/3280804465817969680",
+    "salary": "",
+    "fitScore": 85,
+    "reason": "This is a Senior Backend Engineer role with a focus on low latency, aligning with the candidate\u0027s backend C#/.NET skills and interest in financial services (digital assets).",
+    "missing": "none",
+    "isTargetCompany": false,
+    "status": "New",
+    "firstSeenUtc": "2026-11-02 16:54:54Z",
+    "tailoredSummary": "Senior Backend Engineer with 5\u002B years of experience in C#/.NET Core and microservices, specializing in optimizing database performance and building low-latency solutions within regulated financial environments. Proven ability to significantly reduce execution times and improve system stability through query optimization and efficient data indexing.",
+    "emphasizedBullets": [
+      "Diagnosed an unindexed SQL join in a core stored procedure and redesigned the query logic, cutting execution time from 18 seconds to 1.8 seconds and eliminating recurring incidents for 90\u002B days.",
+      "Reduced nightly aggregation runtime from 40 minutes to under 8 minutes by implementing covering indexes and eliminating table scans.",
+      "Developed, implemented and tested feature enhancements across .NET Core Web API microservices consuming Azure Service Bus, owning components through the full SDLC under regulated release governance.",
+      "Implemented a RabbitMQ-based caching layer to improve response times for high-traffic customer quote endpoints.",
+      "Drove root-cause analysis for production issues and implemented preventive measures to IT compliance standards.",
+      "Optimised stored procedures, reducing report generation time by 35%."
+    ],
+    "coverLetter": "Dear Bitvavo Hiring Team,\n\nI am writing to express my keen interest in the Senior Backend Engineer - Low Latency position at Bitvavo. With over five years of experience developing robust backend systems in C#/.NET Core, particularly within regulated financial services, I possess a strong foundation in building high-performance, low-latency solutions.\n\nMy background includes significant achievements in optimizing database performance, such as reducing query execution times by 90% and dramatically cutting aggregation runtimes through strategic indexing and query redesign. I have a proven track record of developing and deploying microservices, enhancing system responsiveness with caching layers, and ensuring stability through rigorous root-cause analysis. I am confident that my skills in .NET Core, SQL optimization, and microservice architecture align perfectly with the requirements of this role and Bitvavo\u0027s focus on low-latency trading.\n\nI am eager to contribute to your innovative team and am open to relocating within the EU for this opportunity. Please note that I will require visa sponsorship.\n\nThank you for considering my application."
+  },
+  "B6B4A3045FE12019": {
+    "jobId": "B6B4A3045FE12019",
+    "title": "Strategic Account Executive (Eastern Europe)",
+    "company": "Ping Identity",
+    "location": "Netherlands",
+    "link": "https://jooble.org/jdp/-8141239503623864203",
+    "salary": "",
+    "fitScore": 0,
+    "reason": "This is a sales role, not a software engineering role.",
+    "missing": "sales experience",
+    "isTargetCompany": false,
+    "status": "New",
+    "firstSeenUtc": "2026-11-02 16:54:54Z",
+    "tailoredSummary": "",
+    "emphasizedBullets": [],
+    "coverLetter": ""
   }
 }
