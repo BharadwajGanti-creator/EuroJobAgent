@@ -1509,5 +1509,22 @@
     "tailoredSummary": "",
     "emphasizedBullets": [],
     "coverLetter": ""
+  },
+  "132709BA324150B3": {
+    "jobId": "132709BA324150B3",
+    "title": "L2 Regional Technical Expert",
+    "company": "AUTEL Energy - Europe",
+    "location": "Netherlands",
+    "link": "https://jooble.org/jdp/-2216015058603607046",
+    "salary": "",
+    "fitScore": 20,
+    "reason": "This role is focused on technical expertise and support, not core backend software development.",
+    "missing": "backend development experience",
+    "isTargetCompany": false,
+    "status": "New",
+    "firstSeenUtc": "2026-11-06 14:51:49Z",
+    "tailoredSummary": "",
+    "emphasizedBullets": [],
+    "coverLetter": ""
   }
 }
