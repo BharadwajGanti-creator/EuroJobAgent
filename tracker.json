@@ -1526,5 +1526,29 @@
     "tailoredSummary": "",
     "emphasizedBullets": [],
     "coverLetter": ""
+  },
+  "1B8857228BADB7D9": {
+    "jobId": "1B8857228BADB7D9",
+    "title": "Senior Software Engineer - Serverless",
+    "company": "Runware",
+    "location": "Netherlands",
+    "link": "https://jooble.org/jdp/8492423745099086493",
+    "salary": "",
+    "fitScore": 75,
+    "reason": "This is a Senior Software Engineer role, which is a good fit for a mid-level candidate seeking IC roles, and the description implies backend API work.",
+    "missing": "none",
+    "isTargetCompany": false,
+    "status": "New",
+    "firstSeenUtc": "2026-11-10 15:28:32Z",
+    "tailoredSummary": "Senior Software Engineer with 5\u002B years of experience in C#/.NET Core, specializing in building REST APIs and microservices within regulated financial environments. Proven ability to optimize database performance and implement robust CI/CD pipelines, with a strong background in cloud services like Azure.",
+    "emphasizedBullets": [
+      "Developed, implemented and tested feature enhancements across .NET Core Web API microservices consuming Azure Service Bus, owning components through the full SDLC under regulated release governance (UAT sign-offs, controlled deployment windows).",
+      "Diagnosed an unindexed SQL join in a core stored procedure and redesigned the query logic, cutting execution time from 18 seconds to 1.8 seconds and eliminating recurring incidents for 90\u002B days.",
+      "Reduced nightly aggregation runtime from 40 minutes to under 8 minutes by implementing covering indexes and eliminating table scans.",
+      "Designed and developed REST APIs for policy eligibility checks and customer document processing, integrating third-party decisioning engines for automated underwriting workflows.",
+      "Implemented a RabbitMQ-based caching layer to improve response times for high-traffic customer quote endpoints.",
+      "Developed and maintained unit tests (xUnit, Moq) and enforced quality through SonarQube gates and peer code reviews."
+    ],
+    "coverLetter": "Dear Runware Hiring Team,\n\nI am writing to express my keen interest in the Senior Software Engineer - Serverless position at Runware. With over five years of experience developing robust backend systems using C#/.NET Core and building REST APIs and microservices, I am confident in my ability to contribute effectively to your team.\n\nMy background includes extensive work in regulated financial services, where I\u0027ve focused on performance optimization, as demonstrated by significantly reducing query execution times and aggregation runtimes. I have hands-on experience with Azure services, CI/CD pipelines, and ensuring code quality through rigorous testing and analysis, aligning well with the requirements of this role.\n\nI am eager to bring my skills to Runware and am open to relocating within the EU for this opportunity. Please note that I will require visa sponsorship to work in the Netherlands.\n\nThank you for considering my application. I look forward to hearing from you soon."
   }
 }
