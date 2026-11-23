@@ -1574,5 +1574,87 @@
       "Contributed to refactoring initiatives - separating business-logic layers, adopting dependency injection and a Strategy pattern for configurable underwriting workflows."
     ],
     "coverLetter": "Dear Runware Hiring Team,\n\nI am writing to express my keen interest in the Senior Software Engineer position at Runware. With over five years of experience in .NET Core, ASP.NET Core, and C# development, I have a strong track record of delivering robust REST APIs and microservices, particularly within regulated financial services environments. My background includes significant contributions to optimizing SQL Server performance, implementing comprehensive testing strategies, and driving full SDLC ownership in Agile teams.\n\nI am confident that my technical skills and experience align well with the requirements of this role and the innovative work being done at Runware. I am eager to contribute to your team and am open to relocating to the Netherlands for this opportunity. Please note that I will require visa sponsorship.\n\nThank you for considering my application."
+  },
+  "BD607497027B3E0B": {
+    "jobId": "BD607497027B3E0B",
+    "title": "Backend Developer",
+    "company": "Bluebell Analytics",
+    "location": "Netherlands",
+    "link": "https://jooble.org/jdp/3749024118577278467",
+    "salary": "\u20AC31.5 - \u20AC42.75 per hour",
+    "fitScore": 85,
+    "reason": "This is a mid-level backend role with a focus on APIs and services, aligning well with the candidate\u0027s C#/.NET and backend experience.",
+    "missing": "none",
+    "isTargetCompany": false,
+    "status": "New",
+    "firstSeenUtc": "2026-11-23 19:04:52Z",
+    "tailoredSummary": "Backend developer with 5\u002B years of experience in C#/.NET Core, specializing in building and optimizing REST APIs and microservices. Proven ability to enhance performance in regulated financial environments through efficient SQL query design and robust testing practices.",
+    "emphasizedBullets": [
+      "Developed, implemented and tested feature enhancements across .NET Core Web API microservices consuming Azure Service Bus, owning components through the full SDLC under regulated release governance (UAT sign-offs, controlled deployment windows).",
+      "Diagnosed an unindexed SQL join in a core stored procedure and redesigned the query logic, cutting execution time from 18 seconds to 1.8 seconds and eliminating recurring incidents for 90\u002B days.",
+      "Reduced nightly aggregation runtime from 40 minutes to under 8 minutes by implementing covering indexes and eliminating table scans.",
+      "Designed and developed REST APIs for policy eligibility checks and customer document processing, integrating third-party decisioning engines for automated underwriting workflows.",
+      "Implemented a RabbitMQ-based caching layer to improve response times for high-traffic customer quote endpoints.",
+      "Developed and maintained unit tests (xUnit, Moq) and enforced quality through SonarQube gates and peer code reviews."
+    ],
+    "coverLetter": "Dear Bluebell Analytics Hiring Team,\n\nI am writing to express my strong interest in the Backend Developer position at Bluebell Analytics. With over five years of experience in C#/.NET Core, I have a proven track record of designing, developing, and optimizing REST APIs and microservices, particularly within regulated financial-services environments. My background includes significant contributions to performance enhancements through efficient SQL query design and implementation, as demonstrated by reducing execution times by up to 90% and improving aggregation runtimes substantially.\n\nI am confident that my skills in backend development, API design, and database optimization align well with the requirements of this role. I am eager to contribute to your team and am open to relocating to the Netherlands for this opportunity. Please note that I will require visa sponsorship.\n\nThank you for considering my application.\n\nSincerely,\n[Your Name]"
+  },
+  "88A58022841D9380": {
+    "jobId": "88A58022841D9380",
+    "title": "Full-Stack Developer",
+    "company": "Bramble Software",
+    "location": "Netherlands",
+    "link": "https://jooble.org/jdp/3588432508012279546",
+    "salary": "\u20AC30 - \u20AC40.75 per hour",
+    "fitScore": 65,
+    "reason": "This is a full-stack role, which is a decent fit as it includes backend development, but the candidate\u0027s primary focus is backend.",
+    "missing": "none",
+    "isTargetCompany": false,
+    "status": "New",
+    "firstSeenUtc": "2026-11-23 19:04:52Z",
+    "tailoredSummary": "Full-stack developer with 5\u002B years of experience in C#, .NET Core, and Angular, specializing in backend development of REST APIs and microservices within regulated financial services. Proven ability to optimize SQL Server performance and deliver robust solutions in Agile environments.",
+    "emphasizedBullets": [
+      "Developed, implemented, and tested feature enhancements across .NET Core Web API microservices consuming Azure Service Bus, owning components through the full SDLC under regulated release governance.",
+      "Diagnosed an unindexed SQL join in a core stored procedure and redesigned the query logic, cutting execution time from 18 seconds to 1.8 seconds and eliminating recurring incidents for 90\u002B days.",
+      "Reduced nightly aggregation runtime from 40 minutes to under 8 minutes by implementing covering indexes and eliminating table scans.",
+      "Designed and developed REST APIs for policy eligibility checks and customer document processing, integrating third-party decisioning engines for automated underwriting workflows.",
+      "Developed backend C#/.NET changes and Angular UI modules for a multi-tenant travel insurance platform.",
+      "Implemented a RabbitMQ-based caching layer to improve response times for high-traffic customer quote endpoints."
+    ],
+    "coverLetter": "Dear Bramble Software Hiring Team,\n\nI am writing to express my strong interest in the Full-Stack Developer position at Bramble Software. With over five years of experience in C#, .NET Core, and Angular, I have a proven track record of developing and optimizing backend systems, including REST APIs and microservices, particularly within regulated financial services environments. My background includes significant success in enhancing SQL Server performance, as demonstrated by reducing query execution times by 90% and aggregation runtimes by over 80%.\n\nI am confident that my skills in full-stack development and my experience in delivering robust, high-performance solutions align well with the requirements of this role. I am eager to contribute to Bramble Software and am open to relocating to the Netherlands for this opportunity. Please note that I will require visa sponsorship.\n\nThank you for considering my application."
+  },
+  "9CB0DC0012446841": {
+    "jobId": "9CB0DC0012446841",
+    "title": "Frontend Developer",
+    "company": "Bramble Fintech",
+    "location": "Netherlands",
+    "link": "https://jooble.org/jdp/4043625508739609991",
+    "salary": "\u20AC29.5 - \u20AC39.25 per hour",
+    "fitScore": 0,
+    "reason": "This is a Frontend Developer role, and the candidate is seeking a backend role.",
+    "missing": "none",
+    "isTargetCompany": false,
+    "status": "New",
+    "firstSeenUtc": "2026-11-23 19:04:52Z",
+    "tailoredSummary": "",
+    "emphasizedBullets": [],
+    "coverLetter": ""
+  },
+  "89A6830F524AB773": {
+    "jobId": "89A6830F524AB773",
+    "title": "Frontend Developer",
+    "company": "Arbor Fintech",
+    "location": "Netherlands",
+    "link": "https://jooble.org/jdp/6156076320719347307",
+    "salary": "\u20AC28.25 - \u20AC37.75 per hour",
+    "fitScore": 0,
+    "reason": "This is a Frontend Developer role, and the candidate is seeking a backend role.",
+    "missing": "none",
+    "isTargetCompany": false,
+    "status": "New",
+    "firstSeenUtc": "2026-11-23 19:04:52Z",
+    "tailoredSummary": "",
+    "emphasizedBullets": [],
+    "coverLetter": ""
   }
 }
